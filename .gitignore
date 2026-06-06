@@ -3,3 +3,9 @@ dist/
 .storybook-out/
 storybook-static/
 *.tsbuildinfo
+
+# Polecat sandbox
+.beads/
+.claude/
+.runtime/
+CLAUDE.md
