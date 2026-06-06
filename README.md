@@ -2,6 +2,8 @@
 
 Shared React component library with the **restrained Tron/Vercel theme** — dark, geometric, precise. Built on [shadcn/ui](https://ui.shadcn.com/) primitives (Radix UI + Tailwind CSS).
 
+**[Component Showcase →](https://kyle079.github.io/tronvercel-ui/)**
+
 ## Components
 
 | Component | Description |

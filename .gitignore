@@ -1,5 +1,7 @@
 node_modules/
 dist/
+showcase/dist/
+showcase/node_modules/
 .storybook-out/
 storybook-static/
 *.tsbuildinfo
