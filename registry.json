@@ -49,6 +49,15 @@
       "files": [
         { "path": "src/components/ui/kbd.tsx", "type": "registry:ui" }
       ]
+    },
+    {
+      "name": "terminal",
+      "type": "registry:ui",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/terminal.tsx", "type": "registry:ui" },
+        { "path": "src/components/ui/badge.tsx", "type": "registry:ui" }
+      ]
     }
   ]
 }

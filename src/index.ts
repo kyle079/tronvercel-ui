@@ -265,3 +265,18 @@ export {
 
 // Code block / Kbd combos
 export { CodeBlock, KbdCombo, type CodeBlockProps, type KbdComboProps } from './components/ui/code-block';
+export {
+  Terminal,
+  TerminalHeader,
+  TerminalViewport,
+  TerminalOutputLine,
+  TerminalEmpty,
+  TerminalInputForm,
+  TerminalPrompt,
+  type TerminalProps,
+  type TerminalHeaderProps,
+  type TerminalViewportProps,
+  type TerminalOutputLineProps,
+  type TerminalLine,
+  type TerminalStatus,
+} from './components/ui/terminal';

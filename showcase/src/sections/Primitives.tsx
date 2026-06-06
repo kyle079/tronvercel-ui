@@ -1,5 +1,24 @@
-import { Button, Badge, StatusDot, StatusPill, Kbd, Spinner, Skeleton, SkeletonText } from '@tronvercel/ui';
+import {
+  Button,
+  Badge,
+  StatusDot,
+  StatusPill,
+  Kbd,
+  Spinner,
+  Skeleton,
+  SkeletonText,
+  Terminal,
+  type TerminalLine,
+} from '@tronvercel/ui';
 import { ComponentDemo, Section } from './shared';
+
+const TERMINAL_LINES: TerminalLine[] = [
+  { kind: 'system', content: 'connected to deploy-shell-12' },
+  { kind: 'input', content: '$ npm run build' },
+  { content: 'vite v5.4.20 building for production...' },
+  { kind: 'success', content: '✓ built in 812ms' },
+  { content: 'artifact: dist/tronvercel-ui.js' },
+];
 
 export function PrimitivesSection() {
   return (
@@ -130,6 +149,39 @@ export function PrimitivesSection() {
 
 <Skeleton className="h-8 w-48" />
 <SkeletonText lines={3} />`}
+        />
+      </Section>
+
+      <Section title="Terminal">
+        <ComponentDemo
+          name="Terminal"
+          description="Mobile-first shell surface with status, output, and safe command input."
+          demo={
+            <Terminal
+              title="deploy shell"
+              status="connected"
+              lines={TERMINAL_LINES}
+              commandValue=""
+              commandPlaceholder="Run command"
+              className="w-full"
+            />
+          }
+          code={`import { Terminal, type TerminalLine } from '@tronvercel/ui';
+
+const lines: TerminalLine[] = [
+  { kind: 'system', content: 'connected to deploy-shell-12' },
+  { kind: 'input', content: '$ npm run build' },
+  { content: 'vite v5.4.20 building for production...' },
+  { kind: 'success', content: '✓ built in 812ms' },
+];
+
+<Terminal
+  title="deploy shell"
+  status="connected"
+  lines={lines}
+  commandValue=""
+  commandPlaceholder="Run command"
+/>`}
         />
       </Section>
     </div>
