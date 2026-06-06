@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 export const RadioGroup = RadixRadio.Root;
 
-export interface RadioItemProps extends React.ComponentPropsWithoutRef<typeof RadixRadio.Item> {}
+export type RadioItemProps = React.ComponentPropsWithoutRef<typeof RadixRadio.Item>;
 
 export function RadioItem({ className, ...props }: RadioItemProps) {
   return (
