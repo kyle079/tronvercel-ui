@@ -83,3 +83,121 @@ export type {
   SSOProvider,
   AuthContextValue,
 } from './components/ui/auth';
+
+// --- Composite / App-level components ---
+
+// Layout helpers
+export { Stack, Inline, Grid, Section } from './components/ui/layout';
+
+// App shell
+export {
+  AppShell,
+  Sidebar,
+  NavGroup,
+  NavItem,
+  Topbar,
+  useShell,
+  type AppShellProps,
+  type SidebarProps,
+  type NavGroupProps,
+  type NavItemProps,
+  type TopbarProps,
+} from './components/ui/app-shell';
+
+// Page structure
+export {
+  PageHeader,
+  Toolbar,
+  FilterBar,
+  type PageHeaderProps,
+  type BreadcrumbItem,
+  type ToolbarProps,
+} from './components/ui/page-header';
+
+// Data table
+export {
+  DataTable,
+  type DataTableProps,
+  type ColumnDef,
+  type SortDir,
+} from './components/ui/data-table';
+
+// Key-value / description lists
+export {
+  KeyValue,
+  DescriptionList,
+  type KeyValueItem,
+  type KeyValueProps,
+  type DescriptionListProps,
+} from './components/ui/key-value';
+
+// App UX states
+export {
+  EmptyState,
+  LoadingState,
+  ErrorState,
+  type EmptyStateProps,
+  type LoadingStateProps,
+  type ErrorStateProps,
+} from './components/ui/empty-state';
+
+// Error boundary
+export { ErrorBoundary, type ErrorBoundaryProps } from './components/ui/error-boundary';
+
+// Confirm dialog + Dialog primitives
+export {
+  ConfirmDialog,
+  DialogRoot,
+  DialogTrigger,
+  DialogClose,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  type ConfirmDialogProps,
+} from './components/ui/confirm-dialog';
+
+// Toast manager (wired provider + useToast hook)
+export { ToastManager, useToast } from './components/ui/toast-manager';
+
+// Command palette
+export {
+  CommandPalette,
+  type CommandPaletteProps,
+  type CommandItem,
+} from './components/ui/command-palette';
+
+// Dropdown menu
+export {
+  DropdownRoot,
+  DropdownTrigger,
+  DropdownContent,
+  DropdownItem,
+  DropdownLabel,
+  DropdownSeparator,
+  DropdownCheckboxItem,
+  DropdownRadioItem,
+  DropdownRadioGroup,
+  DropdownSub,
+  DropdownSubTrigger,
+  DropdownPortal,
+} from './components/ui/dropdown';
+
+// Tabs
+export {
+  TabsRoot,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from './components/ui/tabs';
+
+// Metric cards
+export {
+  MetricCard,
+  StatBlock,
+  type MetricCardProps,
+  type StatBlockProps,
+} from './components/ui/metric-card';
+
+// Code block / Kbd combos
+export { CodeBlock, KbdCombo, type CodeBlockProps, type KbdComboProps } from './components/ui/code-block';
