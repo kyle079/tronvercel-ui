@@ -1,6 +1,6 @@
 {
   "name": "@tronvercel/ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Tronvercel UI — shared React component library (shadcn/ui + Tailwind) with the restrained-Tron/Vercel theme",
   "license": "MIT",
@@ -37,28 +37,49 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0",
+    "highlight.js": ">=11.0.0",
     "@radix-ui/react-checkbox": ">=1.0.0",
     "@radix-ui/react-radio-group": ">=1.0.0",
     "@radix-ui/react-select": ">=2.0.0",
     "@radix-ui/react-switch": ">=1.0.0",
     "@radix-ui/react-toast": ">=1.0.0",
-    "lucide-react": ">=0.400.0",
     "clsx": ">=2.0.0",
+    "lucide-react": ">=0.400.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
     "tailwind-merge": ">=2.0.0"
   },
   "peerDependenciesMeta": {
-    "@radix-ui/react-checkbox": { "optional": true },
-    "@radix-ui/react-radio-group": { "optional": true },
-    "@radix-ui/react-select": { "optional": true },
-    "@radix-ui/react-switch": { "optional": true },
-    "@radix-ui/react-toast": { "optional": true },
-    "lucide-react": { "optional": true },
-    "clsx": { "optional": true },
-    "tailwind-merge": { "optional": true }
+    "highlight.js": {
+      "optional": true
+    },
+    "@radix-ui/react-checkbox": {
+      "optional": true
+    },
+    "@radix-ui/react-radio-group": {
+      "optional": true
+    },
+    "@radix-ui/react-select": {
+      "optional": true
+    },
+    "@radix-ui/react-switch": {
+      "optional": true
+    },
+    "@radix-ui/react-toast": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    },
+    "clsx": {
+      "optional": true
+    },
+    "tailwind-merge": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "highlight.js": "^11.11.1",
     "@radix-ui/react-checkbox": "^1.3.4",
     "@radix-ui/react-radio-group": "^1.4.0",
     "@radix-ui/react-select": "^2.3.0",

@@ -83,3 +83,4 @@ export type {
   SSOProvider,
   AuthContextValue,
 } from './components/ui/auth';
+export { Code, CodeSnippet, type CodeProps, type CodeSnippetProps } from './components/ui/code-snippet';
