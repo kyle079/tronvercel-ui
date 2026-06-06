@@ -162,3 +162,5 @@ export {
   CommandShortcut,
 } from './components/ui/command';
 export type { CommandDialogProps } from './components/ui/command';
+
+export { Code, CodeSnippet, type CodeProps, type CodeSnippetProps } from './components/ui/code-snippet';
