@@ -18,6 +18,12 @@ Shared React component library with the **restrained Tron/Vercel theme** — dar
 | `StatusDot` | Inline status indicator dot |
 | `StatusPill` | Status dot + label pill |
 | `Panel` / `PanelHeader` / `PanelBody` | Card/panel surface with optional structured header |
+| `Card` / `CardHeader` / `CardBody` / `CardFooter` | Content card (default / flush / ghost variants) |
+| `TableRoot` / `TableHead` / `TableBody` / `TableRow` / `TableTh` / `TableTd` | Data table |
+| `ListRow` / `ListGroup` | List with optional leading/trailing slots |
+| `Pagination` | Page navigation control |
+| `Toast` / `ToastTitle` / `ToastDescription` / `ToastClose` / `ToastAction` | Radix-based toast notifications |
+| `Skeleton` / `SkeletonText` | Shimmer loading placeholders |
 | `Kbd` | Keyboard key glyph |
 | `Spinner` | Loading spinner |
 
@@ -125,6 +131,7 @@ Stories live in `stories/` and cover every component with its variants and state
 | **UI/Badge** | Tones, StatusDot, StatusPill |
 | **UI/Primitives** | Input, Spinner, Panel, Kbd |
 | **UI/FormControls** | Label, Textarea, Checkbox, Switch, Select, RadioGroup, composite form |
+| **UI/DataDisplay** | Card, Skeleton, Table, ListRow, Pagination, Toast |
 
 ## Migration guide
 
