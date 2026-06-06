@@ -1,6 +1,6 @@
 {
   "name": "@tronvercel/auth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tronvercel auth — shared local-password + OIDC authentication for Express apps",
   "license": "MIT",
   "repository": {
