@@ -1,0 +1,54 @@
+{
+  "name": "tronvercel-ui",
+  "homepage": "https://github.com/gastownhall/tronvercel_ui",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/button.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/input.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/badge.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/spinner.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "panel",
+      "type": "registry:ui",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/panel.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/kbd.tsx", "type": "registry:ui" }
+      ]
+    }
+  ]
+}
