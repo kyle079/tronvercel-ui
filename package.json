@@ -2,6 +2,9 @@
   "name": "tronvercel-ui",
   "version": "0.1.0",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "description": "Tronvercel UI — shared React component library (shadcn/ui + Tailwind) with the restrained-Tron/Vercel theme",
   "files": [
     "dist",

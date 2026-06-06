@@ -61,3 +61,25 @@ export {
   ToastAction,
   type ToastProps,
 } from './components/ui/toast';
+
+export {
+  AuthProvider,
+  useAuth,
+  AuthCard,
+  LoginForm,
+  SSOButton,
+  AuthGuard,
+  RequireAuth,
+  UserMenu,
+} from './components/ui/auth';
+export type {
+  AuthProviderProps,
+  AuthCardProps,
+  LoginFormProps,
+  SSOButtonProps,
+  AuthGuardProps,
+  UserMenuProps,
+  AuthUser as AuthUserClient,
+  SSOProvider,
+  AuthContextValue,
+} from './components/ui/auth';
