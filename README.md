@@ -1,4 +1,4 @@
-# tronvercel-ui
+# @tronvercel/ui
 
 Shared React component library with the **restrained Tron/Vercel theme** — dark, geometric, precise. Built on [shadcn/ui](https://ui.shadcn.com/) primitives (Radix UI + Tailwind CSS).
 
@@ -30,14 +30,19 @@ Shared React component library with the **restrained Tron/Vercel theme** — dar
 ## Installation
 
 ```bash
-npm install tronvercel-ui
+npm install @tronvercel/ui
 ```
 
 ### Peer dependencies
 
 ```bash
-npm install react react-dom
+npm install react react-dom \
+  @radix-ui/react-checkbox @radix-ui/react-radio-group \
+  @radix-ui/react-select @radix-ui/react-switch @radix-ui/react-toast \
+  lucide-react clsx tailwind-merge
 ```
+
+Only install the Radix packages for components you actually use. `lucide-react`, `clsx`, and `tailwind-merge` are required for core utilities.
 
 ### CSS
 
@@ -45,7 +50,7 @@ Import the stylesheet **once** at your app entry point:
 
 ```ts
 // main.tsx
-import 'tronvercel-ui/styles';
+import '@tronvercel/ui/styles';
 ```
 
 The stylesheet injects the CSS custom properties (design tokens). Without it, components render but without theme colors.
@@ -53,7 +58,7 @@ The stylesheet injects the CSS custom properties (design tokens). Without it, co
 ## Usage
 
 ```tsx
-import { Button, Badge, Input, Panel, PanelHeader, PanelBody } from 'tronvercel-ui';
+import { Button, Badge, Input, Panel, PanelHeader, PanelBody } from '@tronvercel/ui';
 
 function MyPage() {
   return (
@@ -142,21 +147,24 @@ gastown ships its own Tailwind token set. tronvercel-ui is a **port** of that to
 **Step 1 — install**
 
 ```bash
-npm install tronvercel-ui
+npm install @tronvercel/ui
+npm install @radix-ui/react-checkbox @radix-ui/react-radio-group \
+  @radix-ui/react-select @radix-ui/react-switch @radix-ui/react-toast \
+  lucide-react clsx tailwind-merge
 ```
 
 **Step 2 — swap the stylesheet import**
 
 ```diff
 - import '@/styles/globals.css';   // local token file
-+ import 'tronvercel-ui/styles';
++ import '@tronvercel/ui/styles';
 ```
 
 **Step 3 — replace local component imports**
 
 ```diff
 - import { Button } from '@/components/ui/button';
-+ import { Button } from 'tronvercel-ui';
++ import { Button } from '@tronvercel/ui';
 ```
 
 Component APIs are identical — no prop changes needed.
@@ -167,7 +175,7 @@ Delete the local `src/components/ui/` copies you've replaced. Keep any project-s
 
 ### From a different design system (Newel and others)
 
-1. Import `tronvercel-ui/styles` to inject the token layer.
+1. Import `@tronvercel/ui/styles` to inject the token layer.
 2. Replace your button/input/badge/etc. imports one component at a time.
 3. Use `npm run storybook` to visually verify each component after migration.
 4. Token overrides (see **Theming** above) let you adjust specific colors without forking.

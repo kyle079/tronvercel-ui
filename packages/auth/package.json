@@ -2,6 +2,12 @@
   "name": "@tronvercel/auth",
   "version": "0.1.0",
   "description": "Tronvercel auth — shared local-password + OIDC authentication for Express apps",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyle079/tronvercel-ui.git",
+    "directory": "packages/auth"
+  },
   "type": "commonjs",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -13,7 +19,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -25,7 +32,6 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "express": "^4.21.0",
     "express-session": "^1.18.0",
     "openid-client": "^5.7.1",
     "uuid": "^9.0.1"
@@ -39,6 +45,7 @@
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
     "eslint": "^8.57.0",
+    "express": "^4.21.0",
     "typescript": "^5.5.4"
   },
   "engines": {
