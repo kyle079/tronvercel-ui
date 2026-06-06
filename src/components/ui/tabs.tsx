@@ -1,8 +1,9 @@
+import { forwardRef, type ElementRef, type ComponentPropsWithoutRef } from 'react';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
-import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
 
 export const Tabs = TabsPrimitive.Root;
+export const TabsRoot = TabsPrimitive.Root;
 
 export const TabsList = forwardRef<
   ElementRef<typeof TabsPrimitive.List>,
@@ -12,7 +13,7 @@ export const TabsList = forwardRef<
     <TabsPrimitive.List
       ref={ref}
       className={cn(
-        'inline-flex h-9 items-center gap-0.5 rounded-md bg-surface p-1',
+        'flex items-end gap-0 border-b border-line',
         className,
       )}
       {...props}
@@ -28,11 +29,11 @@ export const TabsTrigger = forwardRef<
     <TabsPrimitive.Trigger
       ref={ref}
       className={cn(
-        'inline-flex items-center justify-center whitespace-nowrap rounded px-3 py-1 text-sm font-medium',
-        'text-muted transition-colors',
+        'relative -mb-px border-b-2 border-transparent px-4 py-2 text-sm text-muted',
+        'transition-colors outline-none',
         'hover:text-fg',
-        'data-[state=active]:bg-raised data-[state=active]:text-fg data-[state=active]:shadow-sm',
-        'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent',
+        'data-[state=active]:border-accent data-[state=active]:text-fg data-[state=active]:font-medium',
+        'focus-visible:ring-1 focus-visible:ring-accent',
         'disabled:pointer-events-none disabled:opacity-40',
         className,
       )}
@@ -48,10 +49,7 @@ export const TabsContent = forwardRef<
   return (
     <TabsPrimitive.Content
       ref={ref}
-      className={cn(
-        'mt-3 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded',
-        className,
-      )}
+      className={cn('outline-none', className)}
       {...props}
     />
   );
