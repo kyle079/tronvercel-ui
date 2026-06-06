@@ -3,3 +3,7 @@ dist/
 .storybook-out/
 storybook-static/
 *.tsbuildinfo
+.beads/
+.claude/
+.runtime/
+CLAUDE.md
