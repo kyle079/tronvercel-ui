@@ -9,6 +9,7 @@ import {
   DialogDescription,
   DialogClose,
   Drawer,
+  DrawerBody,
   DrawerTrigger,
   DrawerContent,
   DrawerHeader,
@@ -87,22 +88,42 @@ export function OverlaySection() {
         <Section title="Drawer">
           <ComponentDemo
             name="Drawer"
-            description="Bottom sheet overlay, slides up from screen bottom. Drag handle included."
+            description="Bottom sheet detail surface. Compose with DrawerHeader, DrawerBody, and DrawerFooter for a standard scrollable layout."
             demo={
               <Drawer>
                 <DrawerTrigger asChild>
-                  <Button variant="default">Open Drawer</Button>
+                  <Button variant="default">Open Deployment</Button>
                 </DrawerTrigger>
                 <DrawerContent>
                   <DrawerHeader>
-                    <DrawerTitle>Settings</DrawerTitle>
+                    <DrawerTitle>Deployment #4821</DrawerTitle>
                     <DrawerDescription>
-                      Manage your account preferences below.
+                      Queued by witness in us-east-1 with the standard detail-drawer layout.
                     </DrawerDescription>
                   </DrawerHeader>
-                  <div className="px-4 py-2 text-sm text-muted">
-                    Drawer content goes here.
-                  </div>
+                  <DrawerBody className="space-y-4 text-sm">
+                    <div className="grid grid-cols-2 gap-3 rounded-md border border-line bg-surface p-4">
+                      <div>
+                        <p className="text-2xs uppercase tracking-[0.18em] text-faint">Status</p>
+                        <p className="mt-1 font-medium text-fg">Healthy</p>
+                      </div>
+                      <div>
+                        <p className="text-2xs uppercase tracking-[0.18em] text-faint">Duration</p>
+                        <p className="mt-1 font-medium text-fg">2m 14s</p>
+                      </div>
+                      <div>
+                        <p className="text-2xs uppercase tracking-[0.18em] text-faint">Commit</p>
+                        <p className="mt-1 font-mono text-xs text-muted">8f2d9b1</p>
+                      </div>
+                      <div>
+                        <p className="text-2xs uppercase tracking-[0.18em] text-faint">Region</p>
+                        <p className="mt-1 font-medium text-fg">us-east-1</p>
+                      </div>
+                    </div>
+                    <div className="rounded-md border border-line bg-surface p-4 text-muted">
+                      This body region owns drawer scrolling and shared horizontal padding.
+                    </div>
+                  </DrawerBody>
                   <DrawerFooter>
                     <DrawerClose asChild>
                       <Button variant="ghost">Close</Button>
@@ -112,17 +133,23 @@ export function OverlaySection() {
               </Drawer>
             }
             code={`import {
-  Drawer, DrawerTrigger, DrawerContent,
-  DrawerHeader, DrawerTitle, DrawerClose,
+  Drawer, DrawerTrigger, DrawerContent, DrawerBody,
+  DrawerHeader, DrawerTitle, DrawerDescription,
+  DrawerFooter, DrawerClose,
 } from '@tronvercel/ui';
 
 <Drawer>
   <DrawerTrigger asChild>
-    <Button>Open Drawer</Button>
+    <Button>Open Deployment</Button>
   </DrawerTrigger>
   <DrawerContent>
-    <DrawerHeader><DrawerTitle>Settings</DrawerTitle></DrawerHeader>
-    <div>Content here</div>
+    <DrawerHeader>
+      <DrawerTitle>Deployment #4821</DrawerTitle>
+      <DrawerDescription>Queued by witness in us-east-1.</DrawerDescription>
+    </DrawerHeader>
+    <DrawerBody className="space-y-4">
+      <div>Detail blocks go here</div>
+    </DrawerBody>
     <DrawerFooter>
       <DrawerClose asChild><Button variant="ghost">Close</Button></DrawerClose>
     </DrawerFooter>

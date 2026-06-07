@@ -57,6 +57,12 @@ export function DrawerFooter({ className, ...props }: React.HTMLAttributes<HTMLD
   );
 }
 
+export function DrawerBody({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={cn('min-h-0 flex-1 overflow-y-auto px-6 pb-6', className)} {...props} />
+  );
+}
+
 export const DrawerTitle = forwardRef<
   ElementRef<typeof DrawerPrimitive.Title>,
   ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
