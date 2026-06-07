@@ -14,6 +14,7 @@ import { KeyValue, DescriptionList } from '../src/components/ui/key-value';
 import { EmptyState, LoadingState, ErrorState } from '../src/components/ui/empty-state';
 import { ConfirmDialog } from '../src/components/ui/confirm-dialog';
 import { CommandPalette } from '../src/components/ui/command-palette';
+import { ActionRow, ActionGroup, ActionMeta } from '../src/components/ui/action-row';
 import {
   DropdownRoot,
   DropdownTrigger,
@@ -28,6 +29,8 @@ import { CodeBlock, KbdCombo } from '../src/components/ui/code-block';
 import { Button } from '../src/components/ui/button';
 import { Badge } from '../src/components/ui/badge';
 import { Panel, PanelHeader } from '../src/components/ui/panel';
+import { Input } from '../src/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../src/components/ui/select';
 
 const meta = {
   title: 'Composite',
@@ -107,6 +110,57 @@ export const AppShellDemo: Story = {
           />
         </div>
       </AppShell>
+    </div>
+  ),
+};
+
+export const ActionRowDemo: Story = {
+  render: () => (
+    <div className="bg-base p-8">
+      <div className="mx-auto max-w-5xl space-y-4">
+        <PageHeader
+          title="Queue operators"
+          description="Compact controls for triage, filters, and bulk actions."
+          compact
+        />
+        <ActionRow
+          left={
+            <>
+              <ActionMeta label="24 selected" hint="queue: ingest / hot path" />
+              <ActionGroup grow>
+                <Input className="w-full sm:w-56" placeholder="Search by ID or owner" />
+                <Select defaultValue="ready">
+                  <SelectTrigger className="w-full sm:w-36">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="ready">Ready</SelectItem>
+                    <SelectItem value="blocked">Blocked</SelectItem>
+                    <SelectItem value="deferred">Deferred</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Select defaultValue="p2">
+                  <SelectTrigger className="w-full sm:w-28">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="p1">P1</SelectItem>
+                    <SelectItem value="p2">P2</SelectItem>
+                    <SelectItem value="p3">P3</SelectItem>
+                  </SelectContent>
+                </Select>
+              </ActionGroup>
+            </>
+          }
+          right={
+            <>
+              <Button size="sm" variant="ghost">Reset</Button>
+              <Button size="sm">Assign</Button>
+              <Button size="sm" variant="primary">Dispatch</Button>
+            </>
+          }
+        />
+      </div>
     </div>
   ),
 };

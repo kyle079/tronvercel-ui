@@ -195,6 +195,14 @@ export {
   type BreadcrumbItem,
   type ToolbarProps,
 } from './components/ui/page-header';
+export {
+  ActionRow,
+  ActionGroup,
+  ActionMeta,
+  type ActionRowProps,
+  type ActionGroupProps,
+  type ActionMetaProps,
+} from './components/ui/action-row';
 
 // Data table
 export {
