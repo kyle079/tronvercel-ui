@@ -51,7 +51,7 @@ The library contract is organized around reusable operator-facing families rathe
 | Navigation shell | `AppShell`, `Sidebar`, `NavGroup`, `NavItem`, `Topbar` |
 | Queue/list panels | `Panel`, `PanelHeader`, `PanelBody`, `ListRow`, `ListGroup`, `DataTable`, `Pagination` |
 | Status cards | `Card`, `MetricCard`, `Badge`, `StatusDot`, `StatusPill`, `EmptyState`, `LoadingState`, `ErrorState` |
-| Action rows and page controls | `PageHeader`, `Toolbar`, `FilterBar`, `Button`, `DropdownMenu`, `Tabs`, `CommandPalette` |
+| Action rows and page controls | `PageHeader`, `Toolbar`, `FilterBar`, `ActionRow`, `ActionGroup`, `ActionMeta`, `Button`, `DropdownMenu`, `Tabs`, `CommandPalette` |
 | Detail drawers and overlays | `Drawer`, `Dialog`, `Popover`, `Tooltip`, `ConfirmDialog` |
 | Forms and input primitives | `Input`, `Textarea`, `Label`, `Select`, `Checkbox`, `Switch`, `RadioGroup` |
 | Mobile-friendly status surfaces | `Drawer`, `Card`, `MetricCard`, `StatusPill`, `OperatorSummaryCard`, `OperatorSummaryStack`, `ToastManager` |

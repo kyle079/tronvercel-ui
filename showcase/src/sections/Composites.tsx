@@ -10,6 +10,15 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandItem,
+  ActionRow,
+  ActionGroup,
+  ActionMeta,
+  Input,
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
   Button,
   Panel,
   ToastProvider,
@@ -89,6 +98,63 @@ export function CompositesSection() {
   <TabsContent value="overview">Overview content</TabsContent>
   <TabsContent value="metrics">Metrics content</TabsContent>
 </Tabs>`}
+        />
+      </Section>
+
+      <Section title="ActionRow">
+        <ComponentDemo
+          name="ActionRow"
+          description="Compact operator control strip for dense filters, bulk actions, and queue state."
+          demo={
+            <ActionRow
+              left={
+                <>
+                  <ActionMeta label="18 selected" hint="scope: active incidents" />
+                  <ActionGroup grow>
+                    <Input className="w-full sm:w-44" placeholder="Search…" />
+                    <Select defaultValue="open">
+                      <SelectTrigger className="w-full sm:w-32">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="open">Open</SelectItem>
+                        <SelectItem value="acked">Acked</SelectItem>
+                        <SelectItem value="resolved">Resolved</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </ActionGroup>
+                </>
+              }
+              right={
+                <>
+                  <Button size="sm" variant="ghost">Clear</Button>
+                  <Button size="sm">Assign</Button>
+                </>
+              }
+            />
+          }
+          code={`import {
+  ActionRow, ActionGroup, ActionMeta,
+  Input, Select, SelectTrigger, SelectValue, SelectContent, SelectItem, Button,
+} from '@tronvercel/ui';
+
+<ActionRow
+  left={
+    <>
+      <ActionMeta label="18 selected" hint="scope: active incidents" />
+      <ActionGroup grow>
+        <Input placeholder="Search…" />
+        <Select defaultValue="open">
+          <SelectTrigger><SelectValue /></SelectTrigger>
+          <SelectContent>
+            <SelectItem value="open">Open</SelectItem>
+          </SelectContent>
+        </Select>
+      </ActionGroup>
+    </>
+  }
+  right={<Button size="sm">Assign</Button>}
+/>`}
         />
       </Section>
 
