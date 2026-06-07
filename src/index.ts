@@ -262,6 +262,15 @@ export {
   type MetricCardProps,
   type StatBlockProps,
 } from './components/ui/metric-card';
+export {
+  OperatorSummaryCard,
+  OperatorSummaryStack,
+  type OperatorSummaryCardProps,
+  type OperatorSummaryStackProps,
+  type OperatorSummaryData,
+  type OperatorSummaryMetric,
+  type OperatorSummaryDetail,
+} from './components/ui/operator-summary';
 
 // Code block / Kbd combos
 export { CodeBlock, KbdCombo, type CodeBlockProps, type KbdComboProps } from './components/ui/code-block';

@@ -24,6 +24,7 @@ import {
 } from '../src/components/ui/dropdown';
 import { TabsRoot, TabsList, TabsTrigger, TabsContent } from '../src/components/ui/tabs';
 import { StatBlock } from '../src/components/ui/metric-card';
+import { OperatorSummaryStack } from '../src/components/ui/operator-summary';
 import { CodeBlock, KbdCombo } from '../src/components/ui/code-block';
 import { Button } from '../src/components/ui/button';
 import { Badge } from '../src/components/ui/badge';
@@ -371,6 +372,58 @@ export const MetricCardsDemo: Story = {
           { label: 'Active users', value: '1,204', tone: 'neutral' },
         ]}
       />
+    </div>
+  ),
+};
+
+export const OperatorSummaryDemo: Story = {
+  render: () => (
+    <div className="bg-base p-8">
+      <div className="max-w-sm">
+        <OperatorSummaryStack
+          items={[
+            {
+              eyebrow: 'Shift A',
+              title: 'Ingress cluster',
+              statusLabel: 'Stable',
+              statusTone: 'ok',
+              statusPulse: true,
+              summary: 'Traffic is within burn-rate targets across all edge regions.',
+              updatedAt: '14:42Z',
+              metrics: [
+                { label: 'Latency', value: '42 ms', tone: 'ok' },
+                { label: 'Error rate', value: '0.08%', tone: 'ok' },
+                { label: 'Queue depth', value: '12', tone: 'neutral' },
+                { label: 'Pages', value: '0', tone: 'ok' },
+              ],
+              details: [
+                { label: 'Primary region', value: 'iad1' },
+                { label: 'Escalation owner', value: 'N. Flores' },
+              ],
+              footer: 'Auto-remediation armed',
+              actions: <Button size="sm" variant="ghost">Inspect</Button>,
+            },
+            {
+              eyebrow: 'Shift A',
+              title: 'Payments workers',
+              statusLabel: 'Degraded',
+              statusTone: 'warn',
+              summary: 'Retry volume is elevated after a partner timeout window.',
+              updatedAt: '14:39Z',
+              metrics: [
+                { label: 'Backlog', value: '184', tone: 'warn' },
+                { label: 'Success', value: '97.8%', tone: 'warn' },
+              ],
+              details: [
+                { label: 'Runbook', value: '#pay-17' },
+                { label: 'Next review', value: '14:50Z' },
+              ],
+              footer: 'Manual review requested',
+              actions: <Button size="sm">Open</Button>,
+            },
+          ]}
+        />
+      </div>
     </div>
   ),
 };

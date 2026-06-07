@@ -36,6 +36,7 @@ Deep imports such as `@tronvercel/ui/src/...` or `@tronvercel/ui/dist/...` are n
 | `TableRoot` / `TableHead` / `TableBody` / `TableRow` / `TableTh` / `TableTd` | Data table |
 | `ListRow` / `ListGroup` | List with optional leading/trailing slots |
 | `Pagination` | Page navigation control |
+| `OperatorSummaryCard` / `OperatorSummaryStack` | Mobile-first operator status summary surfaces |
 | `Toast` / `ToastTitle` / `ToastDescription` / `ToastClose` / `ToastAction` | Radix-based toast notifications |
 | `Skeleton` / `SkeletonText` | Shimmer loading placeholders |
 | `Kbd` | Keyboard key glyph |
@@ -53,7 +54,7 @@ The library contract is organized around reusable operator-facing families rathe
 | Action rows and page controls | `PageHeader`, `Toolbar`, `FilterBar`, `Button`, `DropdownMenu`, `Tabs`, `CommandPalette` |
 | Detail drawers and overlays | `Drawer`, `Dialog`, `Popover`, `Tooltip`, `ConfirmDialog` |
 | Forms and input primitives | `Input`, `Textarea`, `Label`, `Select`, `Checkbox`, `Switch`, `RadioGroup` |
-| Mobile-friendly status surfaces | `Drawer`, `Card`, `MetricCard`, `StatusPill`, `ToastManager` |
+| Mobile-friendly status surfaces | `Drawer`, `Card`, `MetricCard`, `StatusPill`, `OperatorSummaryCard`, `OperatorSummaryStack`, `ToastManager` |
 | Auth surfaces | `AuthProvider`, `AuthGuard`, `AuthCard`, `LoginForm`, `SSOButton`, `UserMenu` |
 
 Patterns that need only layout and composition should be built from these exports instead of relying on unpublished internal files.

@@ -18,6 +18,7 @@ import {
   ToastTitle,
   ToastDescription,
   ToastClose,
+  OperatorSummaryStack,
 } from '@tronvercel/ui';
 import { ComponentDemo, Section } from './shared';
 
@@ -154,6 +155,64 @@ function App() {
     </ToastProvider>
   );
 }`}
+        />
+      </Section>
+
+      <Section title="Operator Summary">
+        <ComponentDemo
+          name="OperatorSummaryCard / OperatorSummaryStack"
+          description="Mobile-first status summary composites for operator feeds, shift handoff, and incident snapshots."
+          demo={
+            <div className="w-full max-w-sm">
+              <OperatorSummaryStack
+                items={[
+                  {
+                    eyebrow: 'Shift A',
+                    title: 'Ingress cluster',
+                    statusLabel: 'Stable',
+                    statusTone: 'ok',
+                    statusPulse: true,
+                    summary: 'Traffic is within burn-rate targets across all edge regions.',
+                    updatedAt: '14:42Z',
+                    metrics: [
+                      { label: 'Latency', value: '42 ms', tone: 'ok' },
+                      { label: 'Error rate', value: '0.08%', tone: 'ok' },
+                    ],
+                    details: [
+                      { label: 'Primary region', value: 'iad1' },
+                      { label: 'Escalation owner', value: 'N. Flores' },
+                    ],
+                    footer: 'Auto-remediation armed',
+                    actions: <Button size="sm" variant="ghost">Inspect</Button>,
+                  },
+                ]}
+              />
+            </div>
+          }
+          code={`import { OperatorSummaryStack, Button } from '@tronvercel/ui';
+
+<OperatorSummaryStack
+  items={[
+    {
+      eyebrow: 'Shift A',
+      title: 'Ingress cluster',
+      statusLabel: 'Stable',
+      statusTone: 'ok',
+      summary: 'Traffic is within burn-rate targets across all edge regions.',
+      updatedAt: '14:42Z',
+      metrics: [
+        { label: 'Latency', value: '42 ms', tone: 'ok' },
+        { label: 'Error rate', value: '0.08%', tone: 'ok' },
+      ],
+      details: [
+        { label: 'Primary region', value: 'iad1' },
+        { label: 'Escalation owner', value: 'N. Flores' },
+      ],
+      footer: 'Auto-remediation armed',
+      actions: <Button size="sm" variant="ghost">Inspect</Button>,
+    },
+  ]}
+/>`}
         />
       </Section>
     </div>
