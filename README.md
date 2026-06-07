@@ -51,12 +51,62 @@ The library contract is organized around reusable operator-facing families rathe
 | Queue/list panels | `Panel`, `PanelHeader`, `PanelBody`, `ListRow`, `ListGroup`, `DataTable`, `Pagination` |
 | Status cards | `Card`, `MetricCard`, `Badge`, `StatusDot`, `StatusPill`, `EmptyState`, `LoadingState`, `ErrorState` |
 | Action rows and page controls | `PageHeader`, `Toolbar`, `FilterBar`, `Button`, `DropdownMenu`, `Tabs`, `CommandPalette` |
-| Detail drawers and overlays | `Drawer`, `Dialog`, `Popover`, `Tooltip`, `ConfirmDialog` |
+| Detail drawers and overlays | `Drawer`, `DrawerBody`, `Dialog`, `Popover`, `Tooltip`, `ConfirmDialog` |
 | Forms and input primitives | `Input`, `Textarea`, `Label`, `Select`, `Checkbox`, `Switch`, `RadioGroup` |
 | Mobile-friendly status surfaces | `Drawer`, `Card`, `MetricCard`, `StatusPill`, `ToastManager` |
 | Auth surfaces | `AuthProvider`, `AuthGuard`, `AuthCard`, `LoginForm`, `SSOButton`, `UserMenu` |
 
 Patterns that need only layout and composition should be built from these exports instead of relying on unpublished internal files.
+
+### Detail drawer composition
+
+Use drawers as structured detail surfaces, not one-off padded sheets. The supported composition is:
+
+`Drawer` → `DrawerTrigger` → `DrawerContent` → `DrawerHeader` + `DrawerBody` + `DrawerFooter`
+
+`DrawerBody` provides the default scroll region and horizontal padding so long detail content stays consistent across apps.
+
+```tsx
+import {
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  KeyValue,
+  StatusPill,
+} from '@tronvercel/ui';
+
+<Drawer>
+  <DrawerTrigger asChild>
+    <Button>Open deployment</Button>
+  </DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Deployment #4821</DrawerTitle>
+      <DrawerDescription>Queued by witness in us-east-1.</DrawerDescription>
+    </DrawerHeader>
+    <DrawerBody className="space-y-4">
+      <StatusPill tone="ok">healthy</StatusPill>
+      <KeyValue
+        items={[
+          { label: 'Commit', value: '8f2d9b1' },
+          { label: 'Duration', value: '2m 14s' },
+        ]}
+      />
+    </DrawerBody>
+    <DrawerFooter>
+      <DrawerClose asChild>
+        <Button variant="ghost">Close</Button>
+      </DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+```
 
 ## Installation
 
