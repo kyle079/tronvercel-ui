@@ -4,6 +4,18 @@ Shared React component library with the **restrained Tron/Vercel theme** — dar
 
 **[Component Showcase →](https://kyle079.github.io/tronvercel-ui/)**
 
+## Supported Import Contract
+
+Downstream apps should treat only these paths as public API:
+
+| Import path | Purpose |
+|-------------|---------|
+| `@tronvercel/ui` | All supported React components, hooks, and exported types |
+| `@tronvercel/ui/styles` | Full library stylesheet: tokens + base layer + utility component styles |
+| `@tronvercel/ui/tokens` | Token-only stylesheet for apps that want the Tronvercel palette without the base resets |
+
+Deep imports such as `@tronvercel/ui/src/...` or `@tronvercel/ui/dist/...` are not supported and may break without notice.
+
 ## Components
 
 | Component | Description |
@@ -28,6 +40,23 @@ Shared React component library with the **restrained Tron/Vercel theme** — dar
 | `Skeleton` / `SkeletonText` | Shimmer loading placeholders |
 | `Kbd` | Keyboard key glyph |
 | `Spinner` | Loading spinner |
+
+## Supported UI Families
+
+The library contract is organized around reusable operator-facing families rather than app-specific screens:
+
+| Family | Supported exports |
+|--------|-------------------|
+| Navigation shell | `AppShell`, `Sidebar`, `NavGroup`, `NavItem`, `Topbar` |
+| Queue/list panels | `Panel`, `PanelHeader`, `PanelBody`, `ListRow`, `ListGroup`, `DataTable`, `Pagination` |
+| Status cards | `Card`, `MetricCard`, `Badge`, `StatusDot`, `StatusPill`, `EmptyState`, `LoadingState`, `ErrorState` |
+| Action rows and page controls | `PageHeader`, `Toolbar`, `FilterBar`, `Button`, `DropdownMenu`, `Tabs`, `CommandPalette` |
+| Detail drawers and overlays | `Drawer`, `Dialog`, `Popover`, `Tooltip`, `ConfirmDialog` |
+| Forms and input primitives | `Input`, `Textarea`, `Label`, `Select`, `Checkbox`, `Switch`, `RadioGroup` |
+| Mobile-friendly status surfaces | `Drawer`, `Card`, `MetricCard`, `StatusPill`, `ToastManager` |
+| Auth surfaces | `AuthProvider`, `AuthGuard`, `AuthCard`, `LoginForm`, `SSOButton`, `UserMenu` |
+
+Patterns that need only layout and composition should be built from these exports instead of relying on unpublished internal files.
 
 ## Installation
 
@@ -56,6 +85,12 @@ import '@tronvercel/ui/styles';
 ```
 
 The stylesheet injects the CSS custom properties (design tokens). Without it, components render but without theme colors.
+
+If your app already owns its reset/base layer, import tokens only:
+
+```ts
+import '@tronvercel/ui/tokens';
+```
 
 ## Usage
 
@@ -182,11 +217,26 @@ Delete the local `src/components/ui/` copies you've replaced. Keep any project-s
 3. Use `npm run storybook` to visually verify each component after migration.
 4. Token overrides (see **Theming** above) let you adjust specific colors without forking.
 
+## Workspace Consumption
+
+For a sibling app inside the same repo or monorepo, depend on the package directly instead of relying on implicit resolver behavior:
+
+```json
+{
+  "dependencies": {
+    "@tronvercel/ui": "file:.."
+  }
+}
+```
+
+That keeps imports identical between local workspace use and a published npm install.
+
 ## Development
 
 ```bash
 npm install
 npm run build        # compile to dist/
+npm run verify-consumer  # verify packaged public surface
 npm run typecheck    # tsc --noEmit
 npm run lint         # eslint
 npm run storybook    # interactive component explorer
