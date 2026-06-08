@@ -3,19 +3,46 @@ import { Issuer, generators } from 'openid-client';
 import type { Client, TokenSet } from 'openid-client';
 import type { AuthConfig, AuthUser } from './types';
 
-let cachedClient: Client | null = null;
+const cachedClients = new Map<string, Promise<Client>>();
+
+function getOidcClientCacheKey(config: AuthConfig): string {
+  const oidcCfg = config.oidc!;
+  return JSON.stringify({
+    issuer: oidcCfg.issuer,
+    clientId: oidcCfg.clientId,
+    clientSecret: oidcCfg.clientSecret,
+    redirectUri: oidcCfg.redirectUri,
+  });
+}
 
 export async function getOidcClient(config: AuthConfig): Promise<Client> {
+  const cacheKey = getOidcClientCacheKey(config);
+  const cachedClient = cachedClients.get(cacheKey);
   if (cachedClient) return cachedClient;
-  const oidcCfg = config.oidc!;
-  const issuer = await Issuer.discover(oidcCfg.issuer);
-  cachedClient = new issuer.Client({
-    client_id: oidcCfg.clientId,
-    client_secret: oidcCfg.clientSecret,
-    redirect_uris: [oidcCfg.redirectUri],
-    response_types: ['code'],
-  });
-  return cachedClient;
+
+  const clientPromise = (async () => {
+    const oidcCfg = config.oidc!;
+    const issuer = await Issuer.discover(oidcCfg.issuer);
+    return new issuer.Client({
+      client_id: oidcCfg.clientId,
+      client_secret: oidcCfg.clientSecret,
+      redirect_uris: [oidcCfg.redirectUri],
+      response_types: ['code'],
+    });
+  })();
+
+  cachedClients.set(cacheKey, clientPromise);
+
+  try {
+    return await clientPromise;
+  } catch (error) {
+    cachedClients.delete(cacheKey);
+    throw error;
+  }
+}
+
+export function resetOidcClientCacheForTests(): void {
+  cachedClients.clear();
 }
 
 function extractRoles(claims: Record<string, unknown>, rolesClaim: string): string[] {
