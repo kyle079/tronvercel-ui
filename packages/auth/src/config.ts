@@ -1,5 +1,22 @@
 import type { AuthConfig } from './types';
 
+function normalizeMountPath(mountPath: string): string {
+  if (mountPath === '/' || mountPath === '') {
+    return '';
+  }
+
+  return mountPath.endsWith('/') ? mountPath.slice(0, -1) : mountPath;
+}
+
+export function resolveLoginPath(mountPath: string, loginPath?: string): string {
+  if (loginPath) {
+    return loginPath;
+  }
+
+  const normalizedMountPath = normalizeMountPath(mountPath);
+  return `${normalizedMountPath}/login` || '/login';
+}
+
 export function resolveConfig(overrides: Partial<AuthConfig> = {}): AuthConfig {
   const mode = (overrides.mode ?? process.env.AUTH_MODE ?? 'local') as AuthConfig['mode'];
   if (!['local', 'oidc', 'both'].includes(mode)) {
@@ -54,6 +71,8 @@ export function resolveConfig(overrides: Partial<AuthConfig> = {}): AuthConfig {
     };
   }
 
+  const mountPath = overrides.mountPath ?? process.env.AUTH_MOUNT_PATH ?? '/auth';
+
   return {
     mode,
     sessionSecret,
@@ -63,7 +82,7 @@ export function resolveConfig(overrides: Partial<AuthConfig> = {}): AuthConfig {
     oidc,
     allowlist,
     userStore: overrides.userStore,
-    mountPath: overrides.mountPath ?? process.env.AUTH_MOUNT_PATH ?? '/auth',
-    loginPath: overrides.loginPath ?? process.env.AUTH_LOGIN_PATH ?? '/auth/login',
+    mountPath,
+    loginPath: resolveLoginPath(mountPath, overrides.loginPath ?? process.env.AUTH_LOGIN_PATH),
   };
 }

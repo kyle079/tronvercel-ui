@@ -27,6 +27,18 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
 }
 
+export function buttonClassName({
+  className,
+  variant = 'default',
+  size = 'md',
+}: {
+  className?: string;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+}) {
+  return cn(base, variants[variant], sizes[size], className);
+}
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   { className, variant = 'default', size = 'md', type = 'button', ...props },
   ref,
@@ -35,7 +47,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     <button
       ref={ref}
       type={type}
-      className={cn(base, variants[variant], sizes[size], className)}
+      className={buttonClassName({ className, variant, size })}
       {...props}
     />
   );
