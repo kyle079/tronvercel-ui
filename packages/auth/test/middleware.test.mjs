@@ -1,8 +1,10 @@
-const test = require('node:test');
-const assert = require('node:assert/strict');
-const express = require('express');
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import express from 'express';
 
-const { createAuthMiddleware } = require('../dist');
+import authModule from '../dist/index.js';
+
+const { createAuthMiddleware } = authModule;
 
 async function withServer(handler) {
   const app = express();
