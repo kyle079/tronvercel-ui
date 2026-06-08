@@ -36,6 +36,7 @@
     "build": "vite build && node scripts/copy-style-assets.mjs",
     "check-exports": "node scripts/check-exports.mjs",
     "verify-consumer": "node scripts/verify-consumer.mjs",
+    "test": "node --test test/*.test.cjs packages/auth/test/*.test.cjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "storybook": "storybook dev -p 6006",

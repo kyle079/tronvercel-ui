@@ -75,7 +75,7 @@ AUTH_OIDC_REDIRECT_URI=https://myapp.example.com/auth/callback
 | `AUTH_OIDC_ALLOWLIST_CLAIM` | `preferred_username` | JWT claim used for allowlist check |
 | `AUTH_ALLOWLIST` | — | Comma-separated username allowlist |
 | `AUTH_MOUNT_PATH` | `/auth` | Path where auth router is mounted |
-| `AUTH_LOGIN_PATH` | `/auth/login` | Redirect target for unauthenticated requests |
+| `AUTH_LOGIN_PATH` | `${AUTH_MOUNT_PATH}/login` | Redirect target for unauthenticated requests |
 
 ## Routes (mounted at AUTH_MOUNT_PATH)
 
