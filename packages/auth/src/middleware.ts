@@ -18,6 +18,17 @@ export interface ProtectOptions {
   redirectToLogin?: boolean;
 }
 
+function matchesMountPath(pathname: string, mountPath: string): boolean {
+  const normalizedMountPath =
+    mountPath !== '/' && mountPath.endsWith('/') ? mountPath.slice(0, -1) : mountPath;
+
+  return (
+    normalizedMountPath === '/' ||
+    pathname === normalizedMountPath ||
+    pathname.startsWith(`${normalizedMountPath}/`)
+  );
+}
+
 export async function createAuthMiddleware(
   overrides: Partial<AuthConfig> = {},
 ): Promise<AuthMiddleware> {
@@ -81,7 +92,7 @@ export async function createAuthMiddleware(
       const pathname = req.path;
 
       const mountPath = config.mountPath ?? '/auth';
-      if (pathname.startsWith(mountPath)) {
+      if (matchesMountPath(pathname, mountPath)) {
         next();
         return;
       }
